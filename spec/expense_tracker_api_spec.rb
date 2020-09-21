@@ -1,5 +1,6 @@
 require 'rack/test'
 require 'json'
+require 'expense_tracker/app/api'
 
 module ExpenseTracker
 
@@ -11,7 +12,6 @@ module ExpenseTracker
     end
 
     it 'records submitted expenses' do
-      pending 'POST not implemented yet'
       coffee = {
           'payee' => 'Starbucks',
           'amount' => 5.75,
