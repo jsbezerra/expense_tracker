@@ -18,7 +18,6 @@ module ExpenseTracker
     describe 'POST /expenses' do
       context 'when the expense is successfully recorded' do
         it 'returns the expense id' do
-          pending
           expense = { 'some' => 'data' }
           allow(ledger).to receive(:record).with(expense).and_return(RecordResult.new(true, 417, nil))
 
