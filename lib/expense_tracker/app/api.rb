@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'json'
+require 'expense_tracker/app/ledger'
 
 module ExpenseTracker
   class API < Sinatra::Base
