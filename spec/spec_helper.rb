@@ -1,7 +1,5 @@
 ENV['RACK_ENV'] = 'test'
 
-require "bundler/setup"
-require "expense_tracker"
 require 'simplecov'
 
 SimpleCov.start
