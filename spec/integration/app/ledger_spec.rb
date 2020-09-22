@@ -19,7 +19,7 @@ module ExpenseTracker
 
           expect(result).to be_success
           expect(DB[:expenses].all).to match [a_hash_including(
-              id:     result.expense_id,
+              id:     result.id,
               payee:  'Starbucks',
               amount: 5.75,
               date:   Date.iso8601('2020-09-20')
@@ -34,7 +34,7 @@ module ExpenseTracker
           result = ledger.record(expense)
 
           expect(result).not_to be_success
-          expect(result.expense_id).to be_nil
+          expect(result.id).to be_nil
           expect(result.error_message).to include('`payee` is required')
 
           expect(DB[:expenses].count).to eq(0)
@@ -49,8 +49,8 @@ module ExpenseTracker
         ledger.record(expense.merge('date' => '2020-09-21'))
 
         expect(ledger.expenses_on('2020-09-20')).to contain_exactly(
-            a_hash_including(id: result_1.expense_id),
-            a_hash_including(id: result_2.expense_id),
+            a_hash_including(id: result_1.id),
+            a_hash_including(id: result_2.id),
         )
       end
 

@@ -14,7 +14,7 @@ module ExpenseTracker
       result  = @ledger.record(expense)
 
       if result.success?
-        JSON.generate('expense_id' => result.expense_id)
+        JSON.generate('id' => result.id)
       else
         status 422
         JSON.generate('error' => result.error_message)
@@ -23,7 +23,7 @@ module ExpenseTracker
 
     get '/expenses/:date' do
       results = @ledger.expenses_on(params[:date]).inject([]) do |arr, result|
-        arr << { :expense_id => result[:id],
+        arr << { :id => result[:id],
                  :payee      => result[:payee],
                  :amount     => result[:amount],
                  :date       => result[:date] }

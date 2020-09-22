@@ -19,8 +19,8 @@ module ExpenseTracker
       expect(last_response.status).to eq(200)
 
       parsed = JSON.parse(last_response.body)
-      expect(parsed).to include('expense_id' => a_kind_of(Integer))
-      expense.merge('expense_id' => parsed['expense_id'])
+      expect(parsed).to include('id' => a_kind_of(Integer))
+      expense.merge('id' => parsed['id'])
     end
 
     it 'records submitted expenses' do

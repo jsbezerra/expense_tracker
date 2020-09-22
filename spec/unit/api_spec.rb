@@ -30,7 +30,7 @@ module ExpenseTracker
 
         it 'returns the expense id' do
           post '/expenses', JSON.generate(expense)
-          expect(last_response_body).to include('expense_id' => 417)
+          expect(last_response_body).to include('id' => 417)
         end
 
         it 'responds with a 200 (OK)' do
@@ -71,7 +71,7 @@ module ExpenseTracker
 
         it 'returns the expense records as JSON' do
           get '/expenses/2020-09-20'
-          expect(last_response_body).to eq([{ 'expense_id' => 1, 'payee' => 'Starbucks', 'amount' => 5.75, 'date' => '2020-09-20' }])
+          expect(last_response_body).to eq([{ 'id' => 1, 'payee' => 'Starbucks', 'amount' => 5.75, 'date' => '2020-09-20' }])
         end
 
         it 'responds with a 200 (OK)' do
