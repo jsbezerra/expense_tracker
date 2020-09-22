@@ -71,7 +71,7 @@ module ExpenseTracker
 
         it 'returns the expense records as JSON' do
           get '/expenses/2020-09-20'
-          expect(last_response_body).to eq([{'expense_id' => 1, 'payee' => 'Starbucks', 'amount' => 5.75, 'date' => '2020-09-20'}])
+          expect(last_response_body).to eq([{ 'expense_id' => 1, 'payee' => 'Starbucks', 'amount' => 5.75, 'date' => '2020-09-20' }])
         end
 
         it 'responds with a 200 (OK)' do
