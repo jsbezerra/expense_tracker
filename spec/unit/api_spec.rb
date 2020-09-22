@@ -1,10 +1,9 @@
 require 'expense_tracker/app/api'
-require 'rack/test'
+require 'expense_tracker/app/ledger'
 require 'json'
+require 'rack/test'
 
 module ExpenseTracker
-
-  RecordResult = Struct.new(:success?, :expense_id, :error_message)
 
   describe API do
     include Rack::Test::Methods
