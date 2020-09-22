@@ -44,7 +44,6 @@ module ExpenseTracker
 
     describe '#expends_on' do
       it 'returns all expenses for the provided date' do
-        pending 'Not implemented yet'
         result_1 = ledger.record(expense.merge('date' => '2020-09-20'))
         result_2 = ledger.record(expense.merge('date' => '2020-09-20'))
         ledger.record(expense.merge('date' => '2020-09-21'))
@@ -56,7 +55,6 @@ module ExpenseTracker
       end
 
       it 'returns a blank array when there are no matching expenses' do
-        pending 'Not implemented yet'
         expect(ledger.expenses_on('2020-09-20')).to eq([])
       end
     end
