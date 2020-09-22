@@ -4,7 +4,7 @@ require 'expense_tracker/app/api'
 
 module ExpenseTracker
 
-  describe 'Expense Tracker API' do
+  describe 'Expense Tracker API', :db do
     include Rack::Test::Methods
 
     def app

@@ -19,10 +19,17 @@ RSpec.configure do |config|
   # Enable RSpec commands to be used without prefixing them with 'Rspec.'
   config.expose_dsl_globally = true
 
+  config.when_first_matching_example_defined(:db) do
+    require 'support/db'
+  end
+
+  # Enable random ordering when running the tests
   config.order = :random
 
+  # Enable warnings
   config.warnings = true
 
+  # Enable profiling
   config.profile_examples = 10
 
   config.filter_gems_from_backtrace 'rack', 'rack-test', 'sequel', 'sinatra'
