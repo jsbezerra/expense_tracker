@@ -8,7 +8,7 @@ module ExpenseTracker
     let(:expense) do
       {
           'payee' => 'Starbucks',
-          'amout' => 5.75,
+          'amount' => 5.75,
           'date'  => '2020-09-20'
       }
     end
@@ -16,7 +16,6 @@ module ExpenseTracker
     describe '#record' do
       context 'with a valid expense' do
         it 'successfully saves the expense in the DB' do
-          pending
           result = ledger.record(expense)
 
           expect(result).to be_success
