@@ -6,9 +6,9 @@ module ExpenseTracker
     let(:ledger) { Ledger.new }
     let(:expense) do
       {
-          'payee' => 'Starbucks',
+          'payee'  => 'Starbucks',
           'amount' => 5.75,
-          'date'  => '2020-09-20'
+          'date'   => '2020-09-20'
       }
     end
 
@@ -19,10 +19,10 @@ module ExpenseTracker
 
           expect(result).to be_success
           expect(DB[:expenses].all).to match [a_hash_including(
-              id: result.expense_id,
-              payee: 'Starbucks',
+              id:     result.expense_id,
+              payee:  'Starbucks',
               amount: 5.75,
-              date: Date.iso8601('2020-09-20')
+              date:   Date.iso8601('2020-09-20')
           )]
         end
       end
@@ -39,6 +39,25 @@ module ExpenseTracker
 
           expect(DB[:expenses].count).to eq(0)
         end
+      end
+    end
+
+    describe '#expends_on' do
+      it 'returns all expenses for the provided date' do
+        pending 'Not implemented yet'
+        result_1 = ledger.record(expense.merge('date' => '2020-09-20'))
+        result_2 = ledger.record(expense.merge('date' => '2020-09-20'))
+        ledger.record(expense.merge('date' => '2020-09-21'))
+
+        expect(ledger.expenses_on('2020-09-20')).to contain_exactly(
+            a_hash_including(id: result_1.expense_id),
+            a_hash_including(id: result_2.expense_id),
+        )
+      end
+
+      it 'returns a blank array when there are no matching expenses' do
+        pending 'Not implemented yet'
+        expect(ledger.expenses_on('2020-09-20')).to eq([])
       end
     end
   end
