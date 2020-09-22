@@ -42,7 +42,7 @@ module ExpenseTracker
       end
     end
 
-    describe '#expends_on' do
+    describe '#expenses_on' do
       it 'returns all expenses for the provided date' do
         result_1 = ledger.record(expense.merge('date' => '2020-09-20'))
         result_2 = ledger.record(expense.merge('date' => '2020-09-20'))
