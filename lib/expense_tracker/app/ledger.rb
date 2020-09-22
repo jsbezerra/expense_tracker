@@ -8,7 +8,7 @@ module ExpenseTracker
 
     end
 
-    def retrieve(date)
+    def expenses_on(date)
 
     end
   end

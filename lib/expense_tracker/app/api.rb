@@ -22,7 +22,7 @@ module ExpenseTracker
     end
 
     get '/expenses/:date' do
-      results = @ledger.retrieve(params[:date]).inject([]) do |arr, result|
+      results = @ledger.expenses_on(params[:date]).inject([]) do |arr, result|
         arr << { :expense_id => result.expense_id,
                  :payee      => result.payee,
                  :amount     => result.amount,
