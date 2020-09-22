@@ -6,5 +6,9 @@ module ExpenseTracker
     def record(expense)
 
     end
+
+    def retrieve(date)
+
+    end
   end
 end
