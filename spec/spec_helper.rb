@@ -19,6 +19,8 @@ RSpec.configure do |config|
   # Enable RSpec commands to be used without prefixing them with 'Rspec.'
   config.expose_dsl_globally = true
 
+  config.order = :random
+
   config.warnings = true
 
   config.profile_examples = 10
