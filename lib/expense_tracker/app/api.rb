@@ -22,8 +22,13 @@ module ExpenseTracker
     end
 
     get '/expenses/:date' do
-      result = @ledger.retrieve(params[:date])
-      JSON.generate(result)
+      results = @ledger.retrieve(params[:date]).inject([]) do |arr, result|
+        arr << { :expense_id => result.expense_id,
+                 :payee      => result.payee,
+                 :amount     => result.amount,
+                 :date       => result.date }
+      end
+      JSON.generate(results)
     end
   end
 end

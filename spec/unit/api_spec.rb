@@ -62,9 +62,7 @@ module ExpenseTracker
 
       let(:date) { '2020-09-20' }
 
-      def expenses
-        [{:success? => true, :expense_id => 417, :error_message => nil}]
-      end
+      let(:expenses) { [Expense.new(1, 'Starbucks', 5.75, '2020-09-20')] }
 
       context 'when expenses exist on the given date' do
         before do
@@ -73,7 +71,7 @@ module ExpenseTracker
 
         it 'returns the expense records as JSON' do
           get '/expenses/2020-09-20'
-          expect(last_response_body).to eq([{"error_message"=>nil, "expense_id"=>417, "success?"=>true}])
+          expect(last_response_body).to eq([{'expense_id' => 1, 'payee' => 'Starbucks', 'amount' => 5.75, 'date' => '2020-09-20'}])
         end
 
         it 'responds with a 200 (OK)' do
@@ -91,7 +89,7 @@ module ExpenseTracker
           get '/expenses/2020-09-20'
           expect(last_response_body).to eq([])
         end
-        
+
         it 'responds with a 200 (OK)' do
           get '/expenses/2020-09-20'
           expect(last_response.status).to eq(200)
