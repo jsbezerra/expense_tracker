@@ -40,6 +40,63 @@ module ExpenseTracker
           expect(DB[:expenses].count).to eq(0)
         end
       end
+
+      context 'when the expense lacks an amount' do
+        it 'rejects the expense as invalid' do
+          expense.delete('amount')
+
+          result = ledger.record(expense)
+
+          expect(result).not_to be_success
+          expect(result.id).to be_nil
+          expect(result.error_message).to include('`amount` is required')
+
+          expect(DB[:expenses].count).to eq(0)
+        end
+      end
+
+      context 'when the expense lacks a date' do
+        it 'rejects the expense as invalid' do
+          expense.delete('date')
+
+          result = ledger.record(expense)
+
+          expect(result).not_to be_success
+          expect(result.id).to be_nil
+          expect(result.error_message).to include('`date` is required')
+
+          expect(DB[:expenses].count).to eq(0)
+        end
+      end
+
+      context 'when the expense lacks an amount and a date' do
+        it 'rejects the expense as invalid' do
+          expense.delete('amount')
+          expense.delete('date')
+
+          result = ledger.record(expense)
+
+          expect(result).not_to be_success
+          expect(result.id).to be_nil
+          expect(result.error_message).to include('`amount, date` are required')
+
+          expect(DB[:expenses].count).to eq(0)
+        end
+      end
+
+      context 'when the expense has an id' do
+        it 'rejects the expense as invalid' do
+          expense['id'] = 1
+
+          result = ledger.record(expense)
+
+          expect(result).not_to be_success
+          expect(result.id).to be_nil
+          expect(result.error_message).to include('new record can not have id')
+
+          expect(DB[:expenses].count).to eq(0)
+        end
+      end
     end
 
     describe '#expenses_on' do
