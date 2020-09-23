@@ -28,7 +28,7 @@ module ExpenseTracker
 
       zoo = post_expense('payee' => 'Zoo', 'amount' => 15.25, 'date' => '2020-09-20')
 
-      groceries = post_expense('payee' => 'Whole Foods', 'amount' => 95.20, 'date' => '2020-09-21')
+      post_expense('payee' => 'Whole Foods', 'amount' => 95.20, 'date' => '2020-09-21')
 
       get '/expenses/2020-09-20'
       expect(last_response.status).to eq(200)
