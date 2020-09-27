@@ -11,7 +11,7 @@ module ExpenseTracker
   describe 'Expense Tracker API', :db do
     include Rack::Test::Methods
 
-    include APIHelpers
+    include_context 'APIHelpers'
 
     def post_expense(expense)
       post '/expenses', JSON.generate(expense)
