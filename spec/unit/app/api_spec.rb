@@ -9,7 +9,7 @@ module ExpenseTracker
     include Rack::Test::Methods
 
     def app
-      API.new(ledger: ledger)
+      API.new(ledger)
     end
 
     def last_response_body
