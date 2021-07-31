@@ -45,6 +45,7 @@ GEM
       tilt (~> 2.0)
     sqlite3 (1.4.2)
     tilt (2.0.10)
+    webrick (1.7.0)
 
 PLATFORMS
   ruby
@@ -59,6 +60,7 @@ DEPENDENCIES
   simplecov (~> 0.19)
   sinatra (~> 2.0)
   sqlite3 (~> 1.4)
+  webrick (~> 1.7)
 
 BUNDLED WITH
    2.2.3

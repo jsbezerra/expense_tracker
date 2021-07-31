@@ -11,3 +11,5 @@ gem "simplecov", "~> 0.19"
 gem "rack-test", "~> 1.0"
 gem "sequel", "~> 5.36"
 gem "sqlite3", "~> 1.4"
+
+gem "webrick", "~> 1.7"
