@@ -21,6 +21,11 @@ RSpec.configure do |config|
   # Enable RSpec commands to be used without prefixing them with 'Rspec.'
   config.expose_dsl_globally = true
 
+  # Enable the aggregation of failures everywhere unless it has been explicitly disabled
+  config.define_derived_metadata do |meta|
+    meta[:aggregate_failures] = true unless meta.key?(:aggregate_failures)
+  end
+
   config.when_first_matching_example_defined(:db) do
     require 'support/db'
   end

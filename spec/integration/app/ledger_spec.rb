@@ -2,7 +2,7 @@ require 'expense_tracker/app/ledger'
 require 'config/sequel'
 
 module ExpenseTracker
-  describe Ledger, :aggregate_failures, :db do
+  describe Ledger, :db do
     let(:ledger) { Ledger.new }
     let(:expense) do
       {
