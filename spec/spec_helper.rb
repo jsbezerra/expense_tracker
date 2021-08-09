@@ -21,6 +21,11 @@ RSpec.configure do |config|
   # Enable RSpec commands to be used without prefixing them with 'Rspec.'
   config.expose_dsl_globally = true
 
+  config.mock_with :rspec do |mocks|
+    mocks.verify_partial_doubles = true
+    mocks.verify_doubled_constant_names = true
+  end
+
   # Enable the aggregation of failures everywhere unless it has been explicitly disabled
   config.define_derived_metadata do |meta|
     meta[:aggregate_failures] = true unless meta.key?(:aggregate_failures)
