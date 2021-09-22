@@ -31,7 +31,7 @@ GEM
       rspec-support (~> 3.10.0)
     rspec-support (3.10.2)
     ruby2_keywords (0.0.5)
-    sequel (5.47.0)
+    sequel (5.48.0)
     simplecov (0.21.2)
       docile (~> 1.1)
       simplecov-html (~> 0.11)
@@ -51,13 +51,13 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  coderay (~> 1.0)
+  coderay (~> 1.1)
   expense_tracker!
-  rack-test (~> 1.0)
+  rack-test (~> 1.1)
   rake (~> 13.0)
-  rspec (~> 3.0)
-  sequel (~> 5.36)
-  simplecov (~> 0.19)
+  rspec (~> 3.10)
+  sequel (~> 5.48)
+  simplecov (~> 0.21)
   sinatra (~> 2.0)
   sqlite3 (~> 1.4)
   webrick (~> 1.7)
