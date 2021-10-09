@@ -6,6 +6,7 @@ module ExpenseTracker
   RecordResult = Struct.new(:success?, :id, :error_message)
   Expense      = Struct.new(:id, :payee, :amount, :date)
 
+  # Implements the communication with the database.
   class Ledger
     REQUIRED_EXPENSE_FIELDS = %w[amount date payee].freeze
 
@@ -37,10 +38,7 @@ module ExpenseTracker
         missing_fields << field unless expense.key? field
       end
 
-      unless missing_fields.empty?
-        message = create_missing_fields_message(missing_fields)
-        RecordResult.new(false, nil, message)
-      end
+      RecordResult.new(false, nil, create_missing_fields_message(missing_fields)) unless missing_fields.empty?
     end
 
     def create_missing_fields_message(fields)

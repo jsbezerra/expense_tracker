@@ -103,13 +103,13 @@ module ExpenseTracker
 
     describe "#expenses_on" do
       it "returns all expenses for the provided date" do
-        result_1 = ledger.record(expense.merge("date" => "2020-09-20"))
-        result_2 = ledger.record(expense.merge("date" => "2020-09-20"))
+        result1 = ledger.record(expense.merge("date" => "2020-09-20"))
+        result2 = ledger.record(expense.merge("date" => "2020-09-20"))
         ledger.record(expense.merge("date" => "2020-09-21"))
 
         expect(ledger.expenses_on("2020-09-20")).to contain_exactly(
-          a_hash_including(id: result_1.id),
-          a_hash_including(id: result_2.id)
+          a_hash_including(id: result1.id),
+          a_hash_including(id: result2.id)
         )
       end
 
