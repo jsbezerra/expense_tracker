@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative "lib/expense_tracker/version"
 
 Gem::Specification.new do |spec|

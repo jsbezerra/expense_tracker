@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "expense_tracker/app/ledger"
 require "config/sequel"
 

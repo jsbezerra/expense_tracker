@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "config/sequel"
 
 module ExpenseTracker
@@ -5,7 +7,7 @@ module ExpenseTracker
   Expense      = Struct.new(:id, :payee, :amount, :date)
 
   class Ledger
-    REQUIRED_EXPENSE_FIELDS = %w[amount date payee]
+    REQUIRED_EXPENSE_FIELDS = %w[amount date payee].freeze
 
     def record(expense)
       missing = validate_missing_fields(expense)
