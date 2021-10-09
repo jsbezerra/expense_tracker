@@ -1,6 +1,6 @@
-require 'expense_tracker/app/api'
+require "expense_tracker/app/api"
 
-shared_context 'APIHelpers' do
+shared_context "APIHelpers" do
   include Rack::Test::Methods
 
   def app

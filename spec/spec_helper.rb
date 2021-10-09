@@ -1,6 +1,6 @@
-ENV['RACK_ENV'] = 'test'
+ENV["RACK_ENV"] = "test"
 
-require 'simplecov'
+require "simplecov"
 
 SimpleCov.start do
   enable_coverage :branch
@@ -34,7 +34,7 @@ RSpec.configure do |config|
   end
 
   config.when_first_matching_example_defined(:db) do
-    require 'support/db'
+    require "support/db"
   end
 
   # Enable random ordering when running the tests
@@ -46,5 +46,5 @@ RSpec.configure do |config|
   # Enable profiling
   config.profile_examples = 10
 
-  config.filter_gems_from_backtrace 'rack', 'rack-test', 'sequel', 'sinatra'
+  config.filter_gems_from_backtrace "rack", "rack-test", "sequel", "sinatra"
 end

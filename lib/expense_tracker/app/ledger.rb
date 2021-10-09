@@ -1,12 +1,10 @@
-require 'config/sequel'
+require "config/sequel"
 
 module ExpenseTracker
-
   RecordResult = Struct.new(:success?, :id, :error_message)
   Expense      = Struct.new(:id, :payee, :amount, :date)
 
   class Ledger
-
     REQUIRED_EXPENSE_FIELDS = %w[amount date payee]
 
     def record(expense)
@@ -28,17 +26,13 @@ module ExpenseTracker
     private
 
     def validate_id(expense)
-      if expense.key? 'id'
-        RecordResult.new(false, nil, 'Invalid expense: new record can not have id')
-      end
+      RecordResult.new(false, nil, "Invalid expense: new record can not have id") if expense.key? "id"
     end
 
     def validate_missing_fields(expense)
       missing_fields = []
       REQUIRED_EXPENSE_FIELDS.each do |field|
-        unless expense.key? field
-          missing_fields << field
-        end
+        missing_fields << field unless expense.key? field
       end
 
       unless missing_fields.empty?
@@ -51,7 +45,7 @@ module ExpenseTracker
       if fields.size == 1
         "Invalid expense: `#{fields[0]}` is required"
       else
-        "Invalid expense: `#{fields.join(', ')}` are required"
+        "Invalid expense: `#{fields.join(", ")}` are required"
       end
     end
   end

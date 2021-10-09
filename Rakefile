@@ -1,12 +1,15 @@
 require "bundler/gem_tasks"
-require "rspec/core/rake_task"
 require "config/sequel"
+require "rspec/core/rake_task"
+require "rubocop/rake_task"
 
 RSpec::Core::RakeTask.new(:spec)
 
-task :default => :spec
+RuboCop::RakeTask.new
+
+task default: %i[rubocop spec]
 
 task :migrate do
   Sequel.extension :migration
-  Sequel::Migrator.run DB, 'db/migrations'
+  Sequel::Migrator.run DB, "db/migrations"
 end
