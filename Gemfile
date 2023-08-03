@@ -8,7 +8,7 @@ gemspec
 gem "coderay", "~> 1.1"
 gem "rack-test", "~> 1.1"
 gem "rake", "~> 13.0"
-gem "rspec", "~> 3.10"
+gem "rspec", "~> 3.12"
 gem "rubocop", "~> 1.21"
 gem "sequel", "~> 5.48"
 gem "simplecov", "~> 0.21"
